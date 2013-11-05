@@ -52,9 +52,7 @@ int main(int argc, char* argv[])
 	__int64 nRows = sql.getRowCount();
 
 	MYSQL_ROW row;
-	while( (row = sql.getRow()) != NULL ){
-	//for(__int64 n = 0; n < nRows; n++){
-		
+	while( (row = sql.getRow()) != NULL ){		
 		printf("%s %s %s\n", row[0], row[1], row[2]);
 	}
 	sql.clear();

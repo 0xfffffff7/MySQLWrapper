@@ -1,0 +1,4 @@
+MySQLWrapper
+============
+
+MySQLWrapper for C++

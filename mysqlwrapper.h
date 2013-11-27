@@ -1,6 +1,6 @@
+#include	<string>
 #include	"my_global.h"
 #include	"mysql.h"
-#include	<string>
 
 #define	LOCK_MODE_READ	1
 #define	LOCK_MODE_WRITE	2
@@ -15,7 +15,7 @@ public:
 
 public:
 	bool init();
-	bool connect(char *host, char *user, char *password, char *dbname);
+	bool connect(const char *host, const char *user, const char *password, const char *dbname);
 	bool isConnect();
 	bool close();
 	bool query(const char *pQuery);
@@ -27,8 +27,8 @@ public:
 	bool lock(char *szTable, int nMode);
 	bool unLock();
 
-	__int64 getLastID();
-	__int64 getRowCount();
+	long long getLastID();
+	long long getRowCount();
 
 	void convertEscape(std::string &str);
 	bool allive_check();

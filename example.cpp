@@ -2,7 +2,7 @@
 #include	"mysqlwrapper.h"
 
 // MYSQL TABLE EXAMPLE
-//Å@ CREATE TABLE book
+//„ÄÄ CREATE TABLE book
 //    (
 //    id INT(11) NOT NULL AUTO_INCREMENT,
 //    title VARCHAR(64),
@@ -13,10 +13,10 @@
 
 int main(int argc, char* argv[])
 {
-	char *server = "localhost";
-	char *user = "root";
-	char *password = "password";
-	char *database = "myapp";
+	const char *server = "localhost";
+	const char *user = "root";
+	const char *password = "password";
+	const char *database = "myapp";
 
 	MySqlWrapper sql;
 
@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
-	__int64 nRows = sql.getRowCount();
+	long long nRows = sql.getRowCount();
 
 	MYSQL_ROW row;
 	while( (row = sql.getRow()) != NULL ){		

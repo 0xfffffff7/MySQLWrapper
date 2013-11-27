@@ -44,7 +44,7 @@ bool MySqlWrapper::init()
 	return true;
 }
 
-bool MySqlWrapper::connect(char *host, char *user, char *password, char *dbname)
+bool MySqlWrapper::connect(const char *host, const char *user, const char *password, const char *dbname)
 {
 	if( isConnect() ){
 		return false;
@@ -200,7 +200,7 @@ bool MySqlWrapper::unLock()
 	return true;
 }
 
-__int64	MySqlWrapper::getLastID()
+long long MySqlWrapper::getLastID()
 {
 	std::string	str;
 	str = "SELECT LAST_INSERT_ID();";
@@ -209,7 +209,7 @@ __int64	MySqlWrapper::getLastID()
 		return -1;
 	}
 
-	__int64	nId = 0;
+	long long nId = 0;
 	MYSQL_ROW row;
 	try
 	{
@@ -229,7 +229,7 @@ __int64	MySqlWrapper::getLastID()
 	return nId;
 }
 
-__int64	MySqlWrapper::getRowCount()
+long long MySqlWrapper::getRowCount()
 {
 	if( !isConnect() ){
 		return -1;
@@ -241,7 +241,7 @@ __int64	MySqlWrapper::getRowCount()
 		return -1;
 	}
 
-	__int64	rows = 0;
+	long long rows = 0;
 	try{
 		rows = mysql_num_rows(m_result);
 	}catch(...)
@@ -255,9 +255,12 @@ __int64	MySqlWrapper::getRowCount()
 void MySqlWrapper::convertEscape(std::string &str)
 {
 	std::string	tmp = str;
-	str_replace(str, std::string("\\"), std::string("\\\\") );
-	str_replace(str, std::string("'"), std::string("\\'") );
-	str_replace(str, std::string("\\"), std::string("\\\\") );
+	std::string replace1 = "\\";
+	std::string replace1_2 = "\\\\";
+	std::string replace2 = "'";
+	std::string replace2_2 = "\\'";
+	str_replace(str, replace1 , replace1_2  );
+	str_replace(str, replace2 , replace2_2  );
 	return;
 }
 

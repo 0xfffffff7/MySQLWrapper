@@ -1,10 +1,10 @@
 MySQLWrapper for C++
 ============
 
-#install mysql and mysql-devel
+#Install MySQL.
+install mysql and mysql-devel.
 Please install the mysql-devel and mysql using the package management commands.
 
-#Configuring MySQL
 Please Create a MySQL User, create databases and tables.
 
 #example.cpp setting

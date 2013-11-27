@@ -15,7 +15,7 @@ public:
 
 public:
 	bool init();
-	bool connect(const char *host, const char *user, const char *password, const char *dbname);
+	bool connect(const char *host, const char *user, const char *password, const char *dbname, int port = 3306);
 	bool isConnect();
 	bool close();
 	bool query(const char *pQuery);

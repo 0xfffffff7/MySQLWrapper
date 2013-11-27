@@ -44,14 +44,14 @@ bool MySqlWrapper::init()
 	return true;
 }
 
-bool MySqlWrapper::connect(const char *host, const char *user, const char *password, const char *dbname)
+bool MySqlWrapper::connect(const char *host, const char *user, const char *password, const char *dbname, int port)
 {
 	if( isConnect() ){
 		return false;
 	}
 
 	try{
-		m_connection = mysql_real_connect(&m_mysql, host, user, password, dbname, 0, "", 0);
+		m_connection = mysql_real_connect(&m_mysql, host, user, password, dbname, port, NULL, 0);
 		if( !isConnect() ){
 			return false;
 		}
